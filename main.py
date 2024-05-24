@@ -22,16 +22,15 @@ screen.onkeypress(turtle.move_right,"Right")
 
 
 is_game_on = True
-looper = 0
 
 while is_game_on:
-    looper +=1
 
     time.sleep(score.timer)
+    screen.update()
 
+    enemy.enemy_gang()
     enemy.constant_flow()
 
-    screen.update()
 
     # Detect collision with enemy.
     for hitting_head in enemy.enemies_list:
@@ -54,8 +53,5 @@ while is_game_on:
         score.update()
         turtle.goto(turtle.initial_pos)
 
-
-    if looper%25 == 0:
-        enemy.enemy_gang()
 
 screen.exitonclick()
